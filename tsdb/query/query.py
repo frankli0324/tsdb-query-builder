@@ -17,7 +17,9 @@ class Query:
 
     def rate(self, counter=False, counterMax: int = None, resetValue: int = None, dropResets: bool = None) -> 'Query':
         '''
-        :param ctr: 
+        :param counter: Whether or not the underlying data is a monotonically increasing counter that may roll over
+        :param counterMax: A positive integer representing the maximum value for the counter.
+        :param resetValue: An optional value that, when exceeded, will cause the aggregator to return a 0 instead of the calculated rate. Useful when data sources are frequently reset to avoid spurious spikes.
         :param dropResets: Whether or not to simply drop rolled-over or reset data points.
         '''
         self._components['rate'] = RateOptions([counter, counterMax, resetValue, dropResets])

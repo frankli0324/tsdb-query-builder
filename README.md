@@ -1,8 +1,8 @@
 # tsdb query string builder
 
 ```python
-from metricsv2.builder.tsdb import Query
-from metricsv2.builder.tsdb.filters import *
+from tsdb.query import Query
+from tsdb.query.filters import *
 
 if __name__ == '__main__':
     print(Query('some.metrics').rate(True, 10, 20).aggr('max').filters({

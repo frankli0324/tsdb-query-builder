@@ -1,6 +1,6 @@
 [project]
 name = "tsdb-query-builder"
-version = "0.0.1"
+version = "0.0.2"
 description = "build tsdb query strings"
 requires-python = ">=3.7"
 authors = [{ name = "Frank", email = "frankli0324@hotmail.com" }]
