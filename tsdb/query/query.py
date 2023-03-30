@@ -32,9 +32,9 @@ class Query:
     def m(self):
         query = ''
         for c in ['aggr', 'rate', 'metric', 'filters']:
+            comp = self._components.get(c)
             if self._debug:
-                print(c, self._components[c])
-            if comp := self._components[c]:
+                print(c, comp)
+            if comp:
                 query += comp.m()
-
         return query
