@@ -14,6 +14,10 @@ class Query:
     def aggr(self, aggr) -> 'Query':
         self._components['aggr'] = Aggregator(aggr)
         return self
+    
+    def downsample(self, window='1m', type='avg', fill='none'):
+        self._components['downsample'] = Downsample(window, type, fill)
+        return self
 
     def rate(self, counter=False, counterMax: int = None, resetValue: int = None, dropResets: bool = None) -> 'Query':
         '''
@@ -31,7 +35,7 @@ class Query:
 
     def m(self):
         query = ''
-        for c in ['aggr', 'rate', 'metric', 'filters']:
+        for c in ['aggr', 'downsample', 'rate', 'metric', 'filters']:
             comp = self._components.get(c)
             if self._debug:
                 print(c, comp)

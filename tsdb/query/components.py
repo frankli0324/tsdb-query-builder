@@ -16,6 +16,16 @@ class Aggregator(Component, str):
         return self + ':'
 
 
+class Downsample(Component):
+    def __init__(self, window='1m', type='avg', fill='none'):
+        self.window = window
+        self.type = type
+        self.fill = fill
+
+    def m(self):
+        return f'{self.window}-{self.type}-{self.fill}:'
+
+
 class RateOptions(Component):
     def __init__(self, v):
         self.counter, self.counterMax, self.resetValue, self.dropResets = v

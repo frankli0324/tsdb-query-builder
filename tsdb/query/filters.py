@@ -13,7 +13,15 @@ class literal_or(_filter):
     pass
 
 
+class not_literal_or(_filter):
+    pass
+
+
 class iliteral_or(_filter):
+    pass
+
+
+class not_iliteral_or(_filter):
     pass
 
 
